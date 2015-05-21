@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Práctica validación formularios</title>
     <meta name="description" content="">
@@ -9,27 +10,215 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body>
+</head>
 
-    <div class="hero-unit">
-      <h1>Práctica validación formularios</h1>
-      <p>Aquí debería ir el enlace a <a href="https://github.com/juanda99/practica-validacion-formularios">tu respositorio en GitHub</a>, donde estará la versión de desarrollo.</p>
+<body>
+    <div class="hero-unit text-center">
+        <h1>Práctica validación formularios</h1>
+        <p>Aquí debería ir el enlace a <a href="https://github.com/juanda99/practica-validacion-formularios">tu respositorio en GitHub</a>, donde estará la versión de desarrollo.</p>
     </div>
-
-
+    <div class="container">
+        <form id="form1" class="form-horizontal" novalidate>
+            <h2>Información de Contácto</h2>
+            <div class="form-group">
+                <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu Nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellidos" class="col-sm-2 control-label">Apellidos</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Introduce tus Apellidos">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Introduce tu telefono">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">E-mail</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu E-mail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email2" class="col-sm-2 control-label">Repite tu E-mail</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email2" name="email2" placeholder="Introduce otra vez tu E-mail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contacto" class="col-sm-2 control-label">¿Cómo nos has conocido?</label>
+                <div class="col-sm-4">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="contacto" id="contacto1" value="option1" checked> Prefiero no contestar
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="contacto" id="contacto2" value="option2"> Publicidad
+                        </label>
+                    </div>
+                    <div class="radio disabled">
+                        <label>
+                            <input type="radio" name="contacto" id="contacto3" value="option3" disabled> Profesionales del sector
+                        </label>
+                    </div>
+                    <div class="radio disabled">
+                        <label>
+                            <input type="radio" name="contacto" id="contacto4" value="option4" disabled> Internet
+                        </label>
+                    </div>
+                    <div class="radio disabled">
+                        <label>
+                            <input type="radio" name="contacto" id="contacto5" value="option5" disabled> A través de un amigo o conocido
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button type="submit" class="btn btn-default">Registrarse</button>
+                </div>
+            </div>
+        </form>
+        <form id="form2" class="form-horizontal" novalidate>
+            <h2>Datos de facturación</h2>
+            <div class="form-group">
+                <label for="demandante" class="col-sm-2 control-label">Demandante</label>
+                <div class="radio disabled">
+                    <label>
+                        <input type="radio" name="demandante" id="demandante1" value="option1" disabled> Particular
+                    </label>
+                </div>
+                <div class="radio disabled">
+                    <label>
+                        <input type="radio" name="demandante" id="demandante2" value="option2" disabled> Empresa
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nif" class="col-sm-2 control-label">CIF/NIF</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="nif" name="nif" placeholder="Introduce tu CIF/NIF">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="empresa" class="col-sm-2 control-label">Nombre de Empresa</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Introduce tu nombre de empresa">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="direccion" class="col-sm-2 control-label">Dirección</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Introduce la dirección de tu empresa">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cp" class="col-sm-2 control-label">Código Postal</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="cp" name="cp" placeholder="Introduce el Código Postal">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="localidad" class="col-sm-2 control-label">Localidad</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Introduce la localidad">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="provincia" class="col-sm-2 control-label">Provincia</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Introduce la Provincia">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pais" class="col-sm-2 control-label">País</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="pais" name="pais" placeholder="Introduce el País">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="iban" class="col-sm-2 control-label">Código IBAN</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="iban" name="iban" placeholder="Introduce el Código IBAN">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pago" class="col-sm-2 control-label">Forma de Pago</label>
+                <div class="col-sm-4">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="pago" id="pago1" value="option1" checked> Mensual
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="pago" id="pago2" value="option2"> Trimestral
+                        </label>
+                    </div>
+                    <div class="radio disabled">
+                        <label>
+                            <input type="radio" name="pago" id="pago3" value="option3" disabled> Anual
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button type="submit" class="btn btn-default">Enviar</button>
+                </div>
+            </div>
+        </form>
+        <form id="form3" class="form-horizontal" novalidate>
+            <h2>Datos de acceso</h2>
+            <div class="form-group">
+                <label for="usuario" class="col-sm-2 control-label">Usuario</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Introduce tu Nick de Usuario">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pass" class="col-sm-2 control-label">Contraseña</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="pass" name="pass" placeholder="Introduce tus Contraseña">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pass2" class="col-sm-2 control-label">Repetir Contraseña</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Introduce tus Contraseña otra vez">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button type="submit" class="btn btn-default">Acceder</button>
+                </div>
+            </div>
+        </form>
+    </div>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/validate.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>
