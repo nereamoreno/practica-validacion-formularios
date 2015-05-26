@@ -24,7 +24,7 @@
         <p>Aquí debería ir el enlace a <a href="https://github.com/juanda99/practica-validacion-formularios">tu respositorio en GitHub</a>, donde estará la versión de desarrollo.</p>
     </div>
     <div class="container">
-        <form id="form1" class="form-horizontal" novalidate>
+        <form id="form" class="form-horizontal" novalidate>
             <h2>Información de Contácto</h2>
             <div class="form-group">
                 <label for="nombre" class="col-sm-2 control-label">Nombre</label>
@@ -71,52 +71,44 @@
                     </div>
                     <div class="radio disabled">
                         <label>
-                            <input type="radio" name="contacto" id="contacto3" value="option3" disabled> Profesionales del sector
+                            <input type="radio" name="contacto" id="contacto3" value="option3"> Profesionales del sector
                         </label>
                     </div>
                     <div class="radio disabled">
                         <label>
-                            <input type="radio" name="contacto" id="contacto4" value="option4" disabled> Internet
+                            <input type="radio" name="contacto" id="contacto4" value="option4"> Internet
                         </label>
                     </div>
                     <div class="radio disabled">
                         <label>
-                            <input type="radio" name="contacto" id="contacto5" value="option5" disabled> A través de un amigo o conocido
+                            <input type="radio" name="contacto" id="contacto5" value="option5"> A través de un amigo o conocido
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-4">
-                    <button type="submit" class="btn btn-default">Registrarse</button>
-                </div>
-            </div>
-        </form>
-        <form id="form2" class="form-horizontal" novalidate>
+
             <h2>Datos de facturación</h2>
-            <div class="form-group">
-                <label for="demandante" class="col-sm-2 control-label">Demandante</label>
-                <div class="radio disabled">
-                    <label>
-                        <input type="radio" name="demandante" id="demandante1" value="option1" disabled> Particular
-                    </label>
-                </div>
-                <div class="radio disabled">
-                    <label>
-                        <input type="radio" name="demandante" id="demandante2" value="option2" disabled> Empresa
-                    </label>
-                </div>
+            <div class="radioCheck">
+                <label for="particular">
+                    <input type="radio" name="cliente" value="0" id="particular" checked="checked" />
+                    <strong>Particular</strong>
+                </label>
+                <label for="empresa">
+                    <input type="radio" name="cliente" value="1" id="empresa" />
+                    <strong>Empresa</strong>
+                </label>
             </div>
+
             <div class="form-group">
-                <label for="nif" class="col-sm-2 control-label">CIF/NIF</label>
+                <label for="nif" class="col-sm-2 control-label" id="labelnif">NIF</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="nif" name="nif" placeholder="Introduce tu CIF/NIF">
                 </div>
             </div>
             <div class="form-group">
-                <label for="empresa" class="col-sm-2 control-label">Nombre de Empresa</label>
+                <label for="empresa" class="col-sm-2 control-label" id="labelNombreEmpresa">Nombre</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Introduce tu nombre de empresa">
+                    <input type="text" class="form-control" id="tipoEmpresa" name="tipoEmpresa" placeholder="Introduce tu nombre de empresa">
                 </div>
             </div>
             <div class="form-group">
@@ -170,18 +162,11 @@
                     </div>
                     <div class="radio disabled">
                         <label>
-                            <input type="radio" name="pago" id="pago3" value="option3" disabled> Anual
+                            <input type="radio" name="pago" id="pago3" value="option3"> Anual
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-4">
-                    <button type="submit" class="btn btn-default">Enviar</button>
-                </div>
-            </div>
-        </form>
-        <form id="form3" class="form-horizontal" novalidate>
             <h2>Datos de acceso</h2>
             <div class="form-group">
                 <label for="usuario" class="col-sm-2 control-label">Usuario</label>
@@ -203,7 +188,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-4">
-                    <button type="submit" class="btn btn-default">Acceder</button>
+                    <button type="submit" class="btn btn-default">Enviar</button>
                 </div>
             </div>
         </form>
