@@ -106,9 +106,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="empresa" class="col-sm-2 control-label" id="labelNombreEmpresa">Nombre</label>
+                <label for="nombreEmpresa" class="col-sm-2 control-label" id="labelNombreEmpresa">Nombre</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="tipoEmpresa" name="tipoEmpresa" placeholder="Introduce tu nombre de empresa">
+                    <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" placeholder="Introduce tu nombre de empresa">
                 </div>
             </div>
             <div class="form-group">
@@ -152,17 +152,17 @@
                 <div class="col-sm-4">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="pago" id="pago1" value="option1" checked> Mensual
+                            <input type="radio" name="pago" id="pago" value="mensual" checked> Mensual
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="pago" id="pago2" value="option2"> Trimestral
+                            <input type="radio" name="pago" id="pago" value="trimestral"> Trimestral
                         </label>
                     </div>
                     <div class="radio disabled">
                         <label>
-                            <input type="radio" name="pago" id="pago3" value="option3"> Anual
+                            <input type="radio" name="pago" id="pago" value="anual"> Anual
                         </label>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-4">
-                    <button type="submit" class="btn btn-default">Enviar</button>
+                    <button type="submit" class="btn btn-default" id="enviar">Enviar</button>
                 </div>
             </div>
         </form>
