@@ -8,14 +8,14 @@ $(document).ready(function() {
                 required: true,
                 minlength: 4
             },
-            /*           apellidos: {
+            apellidos: {
                 required: true
             },
             telefono: {
                 required: true,
                 digits: true,
-                minlength: 9,
-                maxlength: 9
+                min: 9,
+                max: 9
             },
             email: {
                 required: true,
@@ -63,13 +63,14 @@ $(document).ready(function() {
             },
             usuario: {
                 required: true,
-                minlength: 4
+                minlength: 4,
+                remote: 'http://localhost/formularioAjax/validar_email_db.php'
             },
             pass: {
                 required: true
             }
             
-*/
+
         },
 
         messages: {
@@ -88,22 +89,25 @@ $(document).ready(function() {
         },
 
         submitHandler: function(form) {
-
+        
             var cantidad = ($('input:radio[name=pago]:checked').val());
             if (cantidad == "mensual") {
-                alert("Se va a proceder a darle de alta \n Usted a elegido un pago mensualmente \n La cuota es de 50€");
+                var c = confirm("Se va a proceder a darle de alta \n Usted a elegido un pago mensualmente \n La cuota es de 50€");
             } else if (cantidad == "trimestral") {
-                alert("Se va a proceder a darle de alta \n Usted a elegido un pago trimestralmente \n La cuota es de 140€");
+                var c = confirm("Se va a proceder a darle de alta \n Usted a elegido un pago trimestralmente \n La cuota es de 140€");
             } else {
-                alert("Se va a proceder a darle de alta \n Usted a elegido un pago anualmente \n La cuota es de 550€");
+                var c = confirm("Se va a proceder a darle de alta \n Usted a elegido un pago anualmente \n La cuota es de 550€");
             }
-            form.submit();
-
+       
+            if (c == true) {
+                form.submit();
+            } 
         }
 
-
-
     });
+
+    //email valido
+
 
     //Si el código postal tiene un tamaño de 4 añadimos un 0 delante
     $("#cp").focusout(function() {
