@@ -1,8 +1,8 @@
 'use strict';
 $(document).ready(function() {
-  $("h2").click(function(event) {
-      alert( $("#particular").prop("checked"));
-  });
+    $("h2").click(function(event) {
+        alert($("#particular").prop("checked"));
+    });
 
     $('#form').validate({
         rules: {
@@ -27,27 +27,26 @@ $(document).ready(function() {
             email2: {
                 equalTo: '#email'
             },
-            particular: {
-                required: true
-            },
-            empresa: {
-                required: true
-            },
             documento: {
                 required: true,
-                nifES: function() {
-                    if ($("#particular").prop("checked") == true) {
-                        return true;
+                nifES: {
+                    depends: function() {
+                        if ($("#particular").prop("checked") == true) {
+                            return true;
 
-                    } else
-                        return false;
-                }/*,
-                cifES: function() {
-                    if ($("#empresa").prop("checked") == true) {
-                        return true;
-                    } else
-                        return false;
-                }*/
+                        } else
+                            return false;
+                    }
+                },
+
+                cifES: {
+                    depends: function() {
+                        if ($("#empresa").prop("checked") == true) {
+                            return true;
+                        } else
+                            return false;
+                    }
+                }
             },
             nombreEmpresa: {
                 required: true
@@ -80,7 +79,6 @@ $(document).ready(function() {
             usuario: {
                 required: true,
                 minlength: 4,
-                remote: 'http://localhost/formularioAjax/validar_email_db.php'
             },
             pass: {
                 required: true
@@ -91,18 +89,18 @@ $(document).ready(function() {
 
         messages: {
             nombre: {
-                required: 'Debes escribir tu nombre',
+                required: 'Debes introducir tu nombre',
                 minlength: 'Debes introducir al menos 4 carácteres'
             },
             apellidos: {
-                required: 'Debes escribir tus apellidos',
+                required: 'Debes introducir tus apellidos',
             },
             telefono: {
-                required: 'Debes introducir tu número de telefono',
+                required: 'Debes introducir tu número de teléfono',
             },
             email: {
                 email: 'El correo no es válido',
-                required: 'Debes escribir tu correo',
+                required: 'Debes introducir tu correo electrónico',
                 remote: 'El email ya existe en la base de datos'
             },
             email2: {
@@ -134,6 +132,9 @@ $(document).ready(function() {
 
     });
 
+
+
+
     //NIF
     $.validator.addMethod("nifES", function(value) {
         value = value.toUpperCase();
@@ -154,7 +155,7 @@ $(document).ready(function() {
 
         return false;
 
-    }, "Por favor introduce un número de NIF válido.");
+    }, "Por favor introduce un NIF válido.");
 
     //CIF
     $.validator.addMethod("cifES", function(value) {
@@ -211,7 +212,7 @@ $(document).ready(function() {
 
         return false;
 
-    }, "Please specify a valid CIF number.");
+    }, "Por favor, introduce un CIF válido");
 
 
     //contraseña fuerte
@@ -227,12 +228,25 @@ $(document).ready(function() {
     $('#pass').pwstrength(options);
 
 
-    //Código Postal
+    //Código Postal, lo validamos y seleccionamos autoḿáticamente la provincia
     $("#cp").focusout(function() {
         var caracteres = $("#cp").val();
         if (caracteres.length == 4)
             $("#cp").val("0" + caracteres);
+
+        if ($("#pais option:selected").val() == "ES/0/0") {
+            if ($(this).val() != "") {
+                var dato = $(this).val();
+                if (dato.length >= 2) {
+                    dato = dato.substring(0, 2);
+                }
+                $("#provincia").val(dato);
+            }
+        }
+
+
     });
+
 
     //El campo usuario se rellena automaticamente con el correo electrónico
     $("#email").keyup(function(evento) {
@@ -398,30 +412,30 @@ $(document).ready(function() {
             cRest = cOperator % 97;
         }
         return cRest === 1;
-    }, "Please specify a valid IBAN");
+    }, "Por favor, introduce un IBAN válido");
 
-   /* $.extend($.validator.messages, {
-        required: "Este campo es obligatorio.",
-        remote: "Por favor, rellena este campo.",
-        email: "Por favor, escribe una dirección de correo válida.",
-        url: "Por favor, escribe una URL válida.",
-        date: "Por favor, escribe una fecha válida.",
-        dateISO: "Por favor, escribe una fecha (ISO) válida.",
-        number: "Por favor, escribe un número válido.",
-        digits: "Por favor, escribe sólo dígitos.",
-        creditcard: "Por favor, escribe un número de tarjeta válido.",
-        equalTo: "Por favor, escribe el mismo valor de nuevo.",
-        extension: "Por favor, escribe un valor con una extensión aceptada.",
-        maxlength: $.validator.format("Por favor, no escribas más de {0} caracteres."),
-        minlength: $.validator.format("Por favor, no escribas menos de {0} caracteres."),
-        rangelength: $.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
-        range: $.validator.format("Por favor, escribe un valor entre {0} y {1}."),
-        max: $.validator.format("Por favor, escribe un valor menor o igual a {0}."),
-        min: $.validator.format("Por favor, escribe un valor mayor o igual a {0}."),
-        nifES: "Por favor, escribe un NIF válido.",
-        nieES: "Por favor, escribe un NIE válido.",
-        cifES: "Por favor, escribe un CIF válido."
-    });*/
+     $.extend($.validator.messages, {
+         required: "Este campo es obligatorio.",
+         remote: "Por favor, rellena este campo.",
+         email: "Por favor, escribe una dirección de correo válida.",
+         url: "Por favor, escribe una URL válida.",
+         date: "Por favor, escribe una fecha válida.",
+         dateISO: "Por favor, escribe una fecha (ISO) válida.",
+         number: "Por favor, escribe un número válido.",
+         digits: "Por favor, escribe sólo dígitos.",
+         creditcard: "Por favor, escribe un número de tarjeta válido.",
+         equalTo: "Por favor, escribe el mismo valor de nuevo.",
+         extension: "Por favor, escribe un valor con una extensión aceptada.",
+         maxlength: $.validator.format("Por favor, no escribas más de {0} caracteres."),
+         minlength: $.validator.format("Por favor, no escribas menos de {0} caracteres."),
+         rangelength: $.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+         range: $.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+         max: $.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+         min: $.validator.format("Por favor, escribe un valor mayor o igual a {0}."),
+         nifES: "Por favor, escribe un NIF válido.",
+         nieES: "Por favor, escribe un NIE válido.",
+         cifES: "Por favor, escribe un CIF válido."
+     });
 
 
 });
