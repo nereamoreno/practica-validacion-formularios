@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.4",
-    "jquery-validate": "~1.13.1"
+    "jquery-validate": "~1.13.1",
+    "pwstrength-bootstrap": "~1.2.6"
   }
 }
