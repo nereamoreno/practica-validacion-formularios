@@ -22,9 +22,7 @@ $(document).ready(function() {
             email: {
                 required: true,
                 email: true,
-                //remote: '../php/validar_email_db.php'
-                //remote: 'php/validar_email_db.php'
-                remote: 'http://futbolistas.com/validar_email_db.php'
+                remote: 'php/validar_email_db.php'
             },
             email2: {
                 equalTo: '#email'
