@@ -5,7 +5,7 @@ header("access-control-allow-origin: *");
 /* Definimos los parámetros de conexión con la bbdd: */
 $dbinfo = "mysql:dbname=nmoreno_validacion;host=localhost";
 $user = "nmoreno_root";
-$pass = "iOxV4ZrD4B";
+$pass = "password_root";
 //Nos intentamos conectar:
 try {
     /* conectamos con bbdd e inicializamos conexión como UTF8 */

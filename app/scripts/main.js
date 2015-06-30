@@ -8,10 +8,9 @@ $(document).ready(function() {
         rules: {
             nombre: {
                 required: true,
-                minlength: 4
             },
             apellidos: {
-                required: true
+                required: true,
             },
             telefono: {
                 required: true,
@@ -22,9 +21,7 @@ $(document).ready(function() {
             email: {
                 required: true,
                 email: true,
-                //remote: '../php/validar_email_db.php'
-                //remote: 'php/validar_email_db.php'
-                remote: 'http://futbolistas.com/validar_email_db.php'
+                remote: 'php/validar_email_db.php'
             },
             email2: {
                 equalTo: '#email'
@@ -92,7 +89,6 @@ $(document).ready(function() {
         messages: {
             nombre: {
                 required: 'Debes introducir tu nombre',
-                minlength: 'Debes introducir al menos 4 carácteres'
             },
             apellidos: {
                 required: 'Debes introducir tus apellidos',
